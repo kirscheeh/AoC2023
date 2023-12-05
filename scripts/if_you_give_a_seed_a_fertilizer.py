@@ -1,34 +1,66 @@
 #!/usr/bin/env python
 
-import pandas as pd
+def parse_data(path:str="input/if_you_give_a_seed_a_fertilizer.txt") -> tuple[list, dict]:
+	data:list = open(path).read().split("\n\n")
 
-data = open("input/if_you_give_a_seed_a_fertilizer.txt").read().split("\n\n")
+	_, numbers = data[0].split(":")
+	numbers = [int(x) for x in numbers.split(" ") if not x==""]
 
-seeds, numbers = data[0].split(":")
-numbers = [int(x) for x in numbers.split(" ") if not x==""]
+	maps = {}
 
-maps = {}
+	for line in data[1:]:
+		name, *numb = line.split("\n")
+		numb = [[int(x) for x in elem.split(" ")] for elem in numb]
+		maps[name] = numb
+  
+	return numbers, maps
+ 
+def iterate_mappings(maps:dict, seed:int, reverse:bool) -> int:
+	for _, value in maps.items():
+		for elem in value:
+			source, dest = elem[1], elem[0]
+   
+			if reverse:
+				source, dest = dest, source
+    
+			if source <= seed <= source+elem[2]:
+				seed = dest + (seed-source)
+				break
+	return seed
+ 
+def main():
+    
+	numbers, maps = parse_data()
+ 
+	# Part 1
+	min_loc = -1
+	for seed in numbers:
+		seed = iterate_mappings(maps, seed, False)
+		if seed < min_loc or min_loc == -1:
+			min_loc=seed
 
-for line in data[1:]:
-	name, *numb = line.split("\n")
-	numb = [[int(x) for x in elem.split(" ")] for elem in numb]
-	maps[name] = numb
+	print("Part 1", min_loc)
 
-print(numbers)
-checker=-1
+	# Part 2
+	ranges = [range(numbers[i], numbers[i]+numbers[i+1]) for i in range(0, len(numbers), 2)]
+	maps =dict(reversed(list(maps.items())))
 
-for i in range(0, len(numbers), 2):
-	for seed in [a for a in range(numbers[i], numbers[i]+numbers[i+1])]:
-		for key, value in maps.items():
-			for elem in value:
-				if elem[1] <= seed <= elem[1]+elem[2]:
-					seed = elem[0] + (seed-elem[1])
-					break
-		if checker == -1:
-			checker = seed
-		if seed < checker:
-			checker = seed
-		print(checker)
-	#checker.append(seed)
-print(checker)
-print("Part 2", checker)
+	location=0
+
+	while True:
+		seed = iterate_mappings(maps, location, True)
+		
+		for r in ranges:
+			if seed in r:
+				break
+		else:
+			location+=1
+			continue 
+
+		break
+
+	print("Part 2", location)
+ 
+ 
+if __name__ == "__main__":
+    main()
