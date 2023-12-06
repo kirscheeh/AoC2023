@@ -33,19 +33,19 @@ def main():
 	numbers, maps = parse_data()
  
 	# Part 1
-	min_loc = -1
+	min_loc:int = -1
 	for seed in numbers:
-		seed = iterate_mappings(maps, seed, False)
+		seed:int = iterate_mappings(maps, seed, False)
 		if seed < min_loc or min_loc == -1:
 			min_loc=seed
 
 	print("Part 1", min_loc)
 
 	# Part 2
-	ranges = [range(numbers[i], numbers[i]+numbers[i+1]) for i in range(0, len(numbers), 2)]
-	maps =dict(reversed(list(maps.items())))
+	ranges:list = [range(numbers[i], numbers[i]+numbers[i+1]) for i in range(0, len(numbers), 2)]
+	maps = dict(reversed(list(maps.items())))
 
-	location=0
+	location:int =0
 
 	while True:
 		seed = iterate_mappings(maps, location, True)

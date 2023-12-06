@@ -7,7 +7,7 @@ https://adventofcode.com/2023
 | 02  | Cube Conundrum             | [Python](scripts/cube_conundrum.py)     |  [Input](input/cube_conundrum.txt)     |
 | 03  | Gear Ratios            | [Python](scripts/gear_ratios.py)     |   [Input](input/gear_ratios.txt)    |
 | 04  |   Scratchcards          |  [Python](scripts/scratchcards.py)    |  [Input](input/scratchcards.txt)     |
-| 05  |             |      |       |
+| 05  |   If you give a seed a fertilizer          |  [Python](scripts/uf_you_give_a_seed_a_fertilizer.py)    |    [Input](input/if_you_give_a_seed_a_fertilizer.txt)   |
 |     |             |      |       |
 |     |             |      |       |
 |     |             |      |       |
