@@ -10,7 +10,7 @@ https://adventofcode.com/2023
 | 05  |   If you give a seed a fertilizer          |  [Python](scripts/uf_you_give_a_seed_a_fertilizer.py)    |    [Input](input/if_you_give_a_seed_a_fertilizer.txt)   |
 |  06   |   Wait for it          |  [Python](scripts/wait_for_it.py)    |   [Input](input/wait_for_it.txt)    |
 |   07  |    Camel Cards         |   [Python](scripts/camel_cards.py)   |  [Input](input/camel_cards.txt)     |
-|     |             |      |       |
+|   08  |   Hounted Wasteland          |   [Python](scripts/hounted_wasteland.py)   |    [Input](input/hounted_wasteland.txt)   |
 |     |             |      |       |
 |     |             |      |       |
 |     |             |      |       |
