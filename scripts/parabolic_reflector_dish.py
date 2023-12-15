@@ -78,13 +78,6 @@ def calc_total_load(positions:list, length:int) -> int:
         result += (length-row)
     return result
     
-    
-#rolls = north(rocks, rolls)
-#print("Part 1", calc_total_load(rolls, len(data)))
-
-start=None
-prev=None
-
 cache_config={}
 cycle_found=False
 
