@@ -1,16 +1,5 @@
 #!/usr/bin/env python
 
-<<<<<<< HEAD
-data = open("input/point_of_incidence.txt").read().split("\n\n")
-
-for pattern in data:
-print  (pattern) 
-
-
-
-
-
-=======
 import re
 import Levenshtein
 from itertools import chain
@@ -82,4 +71,3 @@ for pattern in data:
     
 print("Part 1", sum(result))
 print("Part 2", sum(p2))
->>>>>>> 2a7b8fa067359515e3b984c6732a9ba1ecd0ac4a
