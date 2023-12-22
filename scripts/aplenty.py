@@ -53,7 +53,6 @@ for part in parts:
         curr = find_new_workflow(workflows[curr], part)
         print(curr)
 
-
     if curr == "A":
         print(part)
         accepted.append(sum(part.values()))
